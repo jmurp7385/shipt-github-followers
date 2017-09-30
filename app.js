@@ -5,9 +5,22 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
+//global usage
+storage = require('node-persist');
+GitHubApi = require("github");
+github = new GitHubApi({
+});
+
+github.authenticate({
+  type: 'oauth',
+  key: '39a51acb8094238c28e1',
+  secret: 'cf04c6178de6860537a0c44151ea43200149daef'
+})
+
 var index = require('./routes/index');
 var users = require('./routes/users');
 var followers = require('./routes/followers');
+var load_more = require('./routes/load_more');
 
 var app = express();
 
@@ -26,6 +39,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', index);
 app.use('/followers', followers);
 app.use('/users', users);
+app.use('/load_more', load_more);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

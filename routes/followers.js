@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-router.get('/followers', function(req, res, next) {
+router.get('/users/more', function(req, res, next) {
   
 });
 

@@ -3,9 +3,13 @@ extends index
 block users
   p Handle: #{handle}
   p Follower Count: #{follower_count}
-  each follower in followers
-    p= follower['login']
-  form(method='POST' action='/users/more')
+  if followers
+    each follower in followers
+      p= follower['login']
+  if next_page < last_page || last_page == null || next_page == null
+    form(method='POST' action='/load_more')
       div.form-group
-        label(for='load_more')        
-        input.form-control(type='submit', value='Load More')
+        input.form-control(name='load_more' type='submit', value='Load More')
+  else
+    h2 All followers have been loaded
+  append followers
