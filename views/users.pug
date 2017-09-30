@@ -1,0 +1,11 @@
+extends index
+
+block users
+  p Handle: #{handle}
+  p Follower Count: #{follower_count}
+  each follower in followers
+    p= follower['login']
+  form(method='POST' action='/users/more')
+      div.form-group
+        label(for='load_more')        
+        input.form-control(type='submit', value='Load More')
