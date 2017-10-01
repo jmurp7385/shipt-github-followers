@@ -1,15 +1,21 @@
 extends index
 
 block users
-  p Handle: #{handle}
-  p Follower Count: #{follower_count}
-  if followers
-    each follower in followers
-      p= follower['login']
+  div.user-info
+    img.avatar(src=avatar)
+    div.text-info
+      p.handle #{handle}
+      p.follower-count #{follower_count} Followers
+  div#grid
+    if followers
+      each follower in followers
+        div.follower
+          img.avatar_follower(src=follower['avatar_url'])
+          p.handle_follower= follower['login']
   if next_page < last_page || last_page == null || next_page == null
     form(method='POST' action='/load_more')
       div.form-group
-        input.form-control(name='load_more' type='submit', value='Load More')
+        input#load_more.form-control(name='load_more' type='submit', value='Load More')
   else
-    h2 All followers have been loaded
-  append followers
+    h2#all_loaded All followers have been loaded
+  //- append followers

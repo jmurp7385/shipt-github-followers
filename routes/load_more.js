@@ -20,7 +20,7 @@ router.post('/', function(req, res, next) {
         });
         storage.setItemSync('followers', JSON.stringify(followers));
         storage.setItemSync('next_page', next_page+1);
-        res.render('followers', {
+        res.render('users', {
           handle: storage.getItemSync('handle'),
           follower_count: storage.getItemSync('follower_count'),
           followers: followers,

@@ -1,4 +1,16 @@
 extends users
 
 block followers
-  p= more
+  div#grid
+    if followers
+      each follower in followers
+        div.follower
+          img.avatar_follower(src=follower['avatar_url'])
+          p.handle_follower= follower['login']
+  if next_page < last_page || last_page == null || next_page == null
+    form(method='POST' action='/load_more')
+      div.form-group
+        input#load_more.form-control(name='load_more' type='submit', value='Load More')
+  else
+    h2#all_loaded All followers have been loaded
+  append followers
