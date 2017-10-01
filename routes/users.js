@@ -11,17 +11,21 @@ router.post('/', function(req, res, next) {
     github.users.getForUser({
       username: username
     }, function (e, r) {
-      var json = JSON.parse(JSON.stringify(r));
-      var data = json['data']
-      storage.setItemSync('handle', data['login']);
-      storage.setItemSync('follower_count', data['followers']);
-      storage.setItemSync('avatar', data['avatar_url']);
-      console.log('Data Stored:' +
-        '\n\thandle: ' + data['login']+
-        '\n\tfollower_count: ' + data['followers']+
-        '\n\tavatar_url: ' + data['avatar_url']
-      );
-      getFollowers(req,res,next,data);
+      if (e) {
+        res.render('error',{error: e});
+      } else {
+        var json = JSON.parse(JSON.stringify(r));
+        var data = json['data']
+        storage.setItemSync('handle', data['login']);
+        storage.setItemSync('follower_count', data['followers']);
+        storage.setItemSync('avatar', data['avatar_url']);
+        console.log('Data Stored:' +
+          '\n\thandle: ' + data['login']+
+          '\n\tfollower_count: ' + data['followers']+
+          '\n\tavatar_url: ' + data['avatar_url']
+        );
+        getFollowers(req,res,next,data);
+      }
     });
   } else {
     res.redirect('/');
@@ -32,7 +36,9 @@ function getFollowers(req,res,next,data) {
   github.users.getFollowersForUser({
     username: storage.getItemSync('handle')
   }, function(e, r) {
-    if(e) console.log(e);
+    if(e) {
+      console.log(e);
+    }
     var json = JSON.parse(JSON.stringify(r));
     // pull first batch of followers from json response
     var followers = json['data'];
