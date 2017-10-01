@@ -24,6 +24,7 @@ router.post('/', function(req, res, next) {
           handle: storage.getItemSync('handle'),
           follower_count: storage.getItemSync('follower_count'),
           followers: followers,
+          avatar: storage.getItemSync('avatar'),
           next_page: storage.getItemSync('next_page'),
           last_page: storage.getItemSync('last_page')
         });

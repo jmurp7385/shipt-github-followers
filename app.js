@@ -19,7 +19,6 @@ github.authenticate({
 
 var index = require('./routes/index');
 var users = require('./routes/users');
-var followers = require('./routes/followers');
 var load_more = require('./routes/load_more');
 
 var app = express();
@@ -37,7 +36,6 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
-app.use('/followers', followers);
 app.use('/users', users);
 app.use('/load_more', load_more);
 
