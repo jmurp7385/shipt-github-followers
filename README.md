@@ -9,7 +9,8 @@ Express doesn't add much to vanilla node, except that it offers abstractions to 
 ### Unmodified Boilerplate code
 - bin/www
 
-- [node-persist](https://github.com/simonlast/node-persist): I chose node persist to keep persistent data
+### Middlewares
+- [node-persist](https://github.com/simonlast/node-persist): I chose node persist to keep persistent data of the current username and what pages of followers have been loaded.
 
 -[winson](https://github.com/winstonjs/winston):I used winston and morgan for logging since they are the mose recoomemnded and popular middlewares for logging.
 
