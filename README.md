@@ -28,8 +28,11 @@ I made it so that if the user clicks on one of the followers tiles it will do a 
 
 - [chai & chai-http](http://chaijs.com/): I chose chai to help with testing as an assertion library. I also used chai-http to test my routes for the web app.
 
+## Links
+
 - [My personal site](http://joeymurphy.me)
 
-- [HackState Sociomotion](sociomotion.tech)
+- [HackState: Sociomotion](sociomotion.tech)
+    + Searches for a given Twitter handle and creates a social and emotional profile using IBM Watson Tone Analyzer API
 
 - [Link to the hosted application](https://shiptgithubfollowers.herokuapp.com/)
