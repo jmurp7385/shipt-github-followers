@@ -15,17 +15,14 @@ router.post('/', function(req, res, next) {
 /*GET user data*/
 router.get('/:username', function(req,res,next) {
   storage.initSync()
-  console.log(req.params.username);
   // Search username and save necessary data
   if(req.params.username) {
     storage.setItemSync('handle', req.params.username);
     var username = storage.getItemSync('handle')
-    console.log(username);
     github.users.getForUser({
       username: username
     }, function (e, r) {
       if (e) {
-        console.log(e);
         e.status = 'User: "' + req.params.username + '" ' + e.status;
         res.render('error',{error: e});
       } else {
