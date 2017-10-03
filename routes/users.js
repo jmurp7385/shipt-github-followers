@@ -2,18 +2,31 @@ var express = require('express');
 var router = express.Router();
 
 
-/* GET users data. */
+/* POST username and redirect to GET. */
 router.post('/', function(req, res, next) {
   storage.initSync()
-  // Search username and save necessary data
   if(req.body.username) {
-    storage.setItemSync('handle', req.body.username);
+    res.redirect('/users/'+req.body.username);
+  } else {
+    res.redirect('/');
+  }
+});
+
+/*GET user data*/
+router.get('/:username', function(req,res,next) {
+  storage.initSync()
+  console.log(req.params.username);
+  // Search username and save necessary data
+  if(req.params.username) {
+    storage.setItemSync('handle', req.params.username);
     var username = storage.getItemSync('handle')
+    console.log(username);
     github.users.getForUser({
       username: username
     }, function (e, r) {
       if (e) {
-        e.status = 'User: "' + req.body.username + '" ' + e.status;
+        console.log(e);
+        e.status = 'User: "' + req.params.username + '" ' + e.status;
         res.render('error',{error: e});
       } else {
         var json = JSON.parse(JSON.stringify(r));
@@ -25,6 +38,7 @@ router.post('/', function(req, res, next) {
       }
     });
   } else {
+    console.log('redirect');
     res.redirect('/');
   }
 });

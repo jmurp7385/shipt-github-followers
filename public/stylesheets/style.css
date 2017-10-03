@@ -6,7 +6,12 @@ body {
 }
 
 a {
-  color: #00B7FF;
+  color: #000;
+  text-decoration: none;
+}
+
+a:visted {
+  color: #000;
 }
 
 *:focus {
@@ -167,7 +172,7 @@ h1 {
 }
 
 .follower:hover {
-  /*border-style: inset;*/
+  border-style: inset;
 }
 /*Follower Info CSS END*/
 

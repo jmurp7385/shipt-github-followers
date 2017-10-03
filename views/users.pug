@@ -9,9 +9,10 @@ block users
   div#grid
     if followers
       each follower in followers
-        div.follower
-          img.avatar_follower(src=follower['avatar_url'])
-          p.handle_follower= follower['login']
+          a(href='/users/'+follower['login'])
+            div.follower
+              img.avatar_follower(src=follower['avatar_url'])
+              p.handle_follower= follower['login']
   if next_page < last_page || last_page == null || next_page == null
     form(method='POST' action='/load_more')
       div.form-group
