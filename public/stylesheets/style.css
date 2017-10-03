@@ -1,3 +1,4 @@
+/*General CSS Start*/
 body {
   padding: 50px;
   background-color: #1D694E;
@@ -8,19 +9,19 @@ a {
   color: #00B7FF;
 }
 
-h1 {
-  text-align: center;
-  margin: auto;
-  width: 50%;
-}
-
 *:focus {
   outline: none;
 }
 
-#search_form {
+input {
+  width: 100%;
+}
+/*General CSS END*/
+
+/*Title CSS START*/
+h1 {
   text-align: center;
-  margin: auto auto 10px auto;
+  margin: auto;
   width: 100%;
 }
 
@@ -28,14 +29,12 @@ h1 {
   font: 50px "Lobster Two", cursive;
   color: #73ae4c;
 }
+/*Title CSS END*/
 
-input {
-  width: 100%;
-}
-
-#rules {
+/*Search Form CSS Start*/
+#search_form {
   text-align: center;
-  margin: 10px 0px 10px 0px;
+  margin: auto auto 10px auto;
   width: 100%;
 }
 
@@ -74,7 +73,9 @@ input {
   border-style: inset;
   box-shadow: 0px 0px 0px #000;
 }
+/*Search Button CSS END*/
 
+/*Load More CSS Start*/
 #load_more {
   border: none;
   width: 100%;
@@ -96,7 +97,9 @@ input {
   background-color: #8F2741;
   border-radius: 5px;
 }
+/*Load More CSS END*/
 
+/*User Info CSS Start*/
 .user-info {
   background-color: #ccc;
   border-style: outset;
@@ -108,14 +111,6 @@ input {
   height: 150px;
   border-radius: 25px;
   padding: 10px 5px 10px 10px;
-  display: inline-block;
-}
-
-.avatar_follower {
-  width: 150px;
-  height: 150px;
-  border-radius: 25px;
-  padding-top: 5px;
   display: inline-block;
 }
 
@@ -131,11 +126,21 @@ input {
   margin: 0px;
   padding-bottom: 5px;
 }
+/*User Info CSS END*/
 
+/*Follower Info CSS START*/
 .follower-count {
   width: 50%;
   margin: 0px;
   padding-bottom: 5px;
+}
+
+.avatar_follower {
+  width: 150px;
+  height: 150px;
+  border-radius: 25px;
+  padding-top: 5px;
+  display: inline-block;
 }
 
 .handle_follower {
@@ -144,17 +149,6 @@ input {
   text-align: center;
 }
 
-.error {
-  background-color: #ccc;
-  color: #f00;
-  padding: 25px;
-  text-align: left;
-}
-/*
-.stack {
-  width: 90%;
-}
-*/
 #grid {
   display: grid;
   grid-template-columns: auto auto auto auto;
@@ -174,3 +168,13 @@ input {
 .follower:hover {
   /*border-style: inset;*/
 }
+/*Follower Info CSS END*/
+
+/*Error CSS START*/
+.error {
+  background-color: #ccc;
+  color: #f00;
+  padding: 25px;
+  text-align: left;
+}
+/*Error CSS END*/

@@ -1,9 +1,12 @@
 var logger = require('./utils/logger');
 var express = require('express');
 var path = require('path');
-// var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var index = require('./routes/index');
+var users = require('./routes/users');
+var load_more = require('./routes/load_more');
+var app = express();
 
 //global usage
 storage = require('node-persist');
@@ -17,12 +20,6 @@ github.authenticate({
   key: '39a51acb8094238c28e1',
   secret: 'cf04c6178de6860537a0c44151ea43200149daef'
 })
-
-var index = require('./routes/index');
-var users = require('./routes/users');
-var load_more = require('./routes/load_more');
-
-var app = express();
 
 //logger setup
 logger.debug("Overriding 'Express' logger");
@@ -38,12 +35,12 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-
+// set up middlewares for each route
 app.use('/', index);
 app.use('/users', users);
 app.use('/load_more', load_more);
 
-// BOILERPLATE
+// START - GENERATED CODE
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -64,3 +61,5 @@ app.use(function(err, req, res, next) {
 });
 
 module.exports = app;
+
+// END - GENERATERED CODE

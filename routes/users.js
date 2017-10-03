@@ -5,6 +5,7 @@ var router = express.Router();
 /* GET users data. */
 router.post('/', function(req, res, next) {
   storage.initSync()
+  // Search username and save necessary data
   if(req.body.username) {
     storage.setItemSync('handle', req.body.username);
     var username = storage.getItemSync('handle')
@@ -12,9 +13,7 @@ router.post('/', function(req, res, next) {
       username: username
     }, function (e, r) {
       if (e) {
-        console.log('ERROR: ',e.status);
         e.status = 'User: "' + req.body.username + '" ' + e.status;
-        console.log(e['message']);
         res.render('error',{error: e});
       } else {
         var json = JSON.parse(JSON.stringify(r));
@@ -30,6 +29,7 @@ router.post('/', function(req, res, next) {
   }
 });
 
+// get followers for the searched user
 function getFollowers(req,res,next,data) {
   github.users.getFollowersForUser({
     username: storage.getItemSync('handle')

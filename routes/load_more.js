@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
+// loads the next batch of followers for the given user
 router.post('/', function(req, res, next) {
   storage.initSync();
   var followers = JSON.parse(storage.getItemSync('followers'));
@@ -13,9 +14,7 @@ router.post('/', function(req, res, next) {
       page: next_page
     }, function(e,r){
       if (e) {
-        console.log('ERROR: ',e.status);
         e.status = 'User: "' + req.body.username + '" ' + e.status;
-        console.log(e['message']);
         res.render('error',{error: e});
       } else {
         var json = JSON.parse(JSON.stringify(r));
