@@ -6,7 +6,7 @@ I chose Express because of the useful middlewares availables. This is my second 
 
 Express doesn't add much to vanilla node, except that it offers abstractions to some of the lower level functionality.
 
-##Challenges
+## Challenges
 I was not able to get the loading of the next batch of followers without refreshing the page, which is not the best way to do it, I know. I tried researching how to do it, but found nothing. Given more time I think I could find a way to fix it.
 
 ## Additional features
