@@ -17,10 +17,10 @@ GitHubApi = require("github");
 github = new GitHubApi({
 });
 
-console.log(process.env.secret);
+// github auth for entire app
 github.authenticate({
   type: 'oauth',
-  key: '39a51acb8094238c28e1',
+  key: process.env.key,
   secret: process.env.secret
 })
 
