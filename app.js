@@ -4,7 +4,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var request = require('request');
+
 //route middlewares
 var index = require('./routes/index');
 var users = require('./routes/users');
