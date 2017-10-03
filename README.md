@@ -15,7 +15,7 @@ I made it so that if the user clicks on one of the followers tiles it will do a 
 ### Middlewares
 - [node-persist](https://github.com/simonlast/node-persist): I chose node persist to keep persistent data of the current username and what pages of followers have been loaded.
 
--[dotenv](): dotenv is used to give some measure of security to the github api secret key, probably not the best way for production code, but I don't know another way.
+- [dotenv](): dotenv is used to give some measure of security to the github api secret key, probably not the best way for production code, but I don't know another way.
 
 - [winston](https://github.com/winstonjs/winston): I used winston and morgan for logging since they are the mose recoomemnded and popular middlewares for logging.
 
