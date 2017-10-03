@@ -6,6 +6,9 @@ I chose Express because of the useful middlewares availables. This is my second 
 
 Express doesn't add much to vanilla node, except that it offers abstractions to some of the lower level functionality.
 
+##Challenges
+I was not able to get the loading of the next batch of followers without refreshing the page, which is not the best way to do it, I know. I tried researching how to do it, but found nothing. Given more time I think I could find a way to fix it.
+
 ## Additional features
 I made it so that if the user clicks on one of the followers tiles it will do a search of that follower automatically.
 
@@ -26,5 +29,7 @@ I made it so that if the user clicks on one of the followers tiles it will do a 
 - [chai & chai-http](http://chaijs.com/): I chose chai to help with testing as an assertion library. I also used chai-http to test my routes for the web app.
 
 - [My personal site](http://joeymurphy.me)
+
+- [HackState Sociomotion](sociomotion.tech)
 
 - [Link to the hosted application](https://shiptgithubfollowers.herokuapp.com/)
