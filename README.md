@@ -12,10 +12,10 @@ I was not able to get the loading of the next batch of followers without refresh
 ## Additional features
 I made it so that if the user clicks on one of the followers tiles it will do a search of that follower automatically.
 
-### Unmodified Generated code
+## Unmodified Generated code
 - bin/www
 
-### Middlewares
+## Middlewares
 - [node-persist](https://github.com/simonlast/node-persist): I chose node persist to keep persistent data of the current username and what pages of followers have been loaded.
 
 - [dotenv](): dotenv is used to give some measure of security to the github api secret key, probably not the best way for production code, but I don't know another way.
