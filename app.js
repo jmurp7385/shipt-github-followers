@@ -1,8 +1,11 @@
+require('dotenv').config()
 var logger = require('./utils/logger');
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var request = require('request');
+//route middlewares
 var index = require('./routes/index');
 var users = require('./routes/users');
 var load_more = require('./routes/load_more');
@@ -14,11 +17,11 @@ GitHubApi = require("github");
 github = new GitHubApi({
 });
 
-//set github auth for app
+console.log(process.env.secret);
 github.authenticate({
   type: 'oauth',
   key: '39a51acb8094238c28e1',
-  secret: 'cf04c6178de6860537a0c44151ea43200149daef'
+  secret: process.env.secret
 })
 
 //logger setup
