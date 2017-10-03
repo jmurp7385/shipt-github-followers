@@ -84,6 +84,7 @@ h1 {
   border-color: #73ae4c;
   border-style: outset;
   box-shadow: 0px 2px 2px #000;
+  margin-top: 10px;
 }
 
 #load_more:active {
