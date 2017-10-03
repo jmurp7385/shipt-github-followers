@@ -34,7 +34,7 @@ I made it so that if the user clicks on one of the followers tiles it will do a 
 
 - [My personal site](http://joeymurphy.me)
 
-- [HackState: Sociomotion](sociomotion.tech) [Github Repo](https://github.com/jmurp7385/sociomotion)
+- [HackState: Sociomotion](sociomotion.tech) ([Github Repo])(https://github.com/jmurp7385/sociomotion)
     + Searches for a given Twitter handle and creates a social and emotional profile using IBM Watson Tone Analyzer API. Given the time constraint of the hackathon and my first time using express correctly the code is messy. I worked with 2 other people on it.
 
 - [CrimsonHacks: Magic Mirror Module Controller](https://github.com/jmurp7385/MMM-HTML-Controller)
