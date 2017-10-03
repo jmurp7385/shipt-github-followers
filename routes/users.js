@@ -22,11 +22,6 @@ router.post('/', function(req, res, next) {
         storage.setItemSync('handle', data['login']);
         storage.setItemSync('follower_count', data['followers']);
         storage.setItemSync('avatar', data['avatar_url']);
-        console.log('Data Stored:' +
-          '\n\thandle: ' + data['login']+
-          '\n\tfollower_count: ' + data['followers']+
-          '\n\tavatar_url: ' + data['avatar_url']
-        );
         getFollowers(req,res,next,data);
       }
     });
@@ -53,16 +48,9 @@ function getFollowers(req,res,next,data) {
       last_page = link.split('>')[0];
       storage.setItemSync('last_page', last_page+1);
       storage.setItemSync('next_page', 2);
-      console.log('Data Stored:' +
-        '\n\tfirst_page: ' + 2+
-        '\n\tlast_page: ' + last_page);
     } else {
       storage.setItemSync('last_page', 1);
       storage.setItemSync('next_page', 1);
-      console.log('Data Stored:' +
-        '\n\tfirst_page: ' + 1 +
-        '\n\tlast_page: ' + 1
-      );
     }
 
     res.render('users', {

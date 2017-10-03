@@ -1,7 +1,7 @@
+var logger = require('./utils/logger');
 var express = require('express');
 var path = require('path');
-var favicon = require('serve-favicon');
-var logger = require('morgan');
+// var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
@@ -11,6 +11,7 @@ GitHubApi = require("github");
 github = new GitHubApi({
 });
 
+//set github auth for app
 github.authenticate({
   type: 'oauth',
   key: '39a51acb8094238c28e1',
@@ -23,21 +24,26 @@ var load_more = require('./routes/load_more');
 
 var app = express();
 
+//logger setup
+logger.debug("Overriding 'Express' logger");
+app.use(require('morgan')({ "stream": logger.stream }));
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
-// uncomment after placing your favicon in /public
-//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
-app.use(logger('dev'));
+// app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+
 app.use('/', index);
 app.use('/users', users);
 app.use('/load_more', load_more);
+
+// BOILERPLATE
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
