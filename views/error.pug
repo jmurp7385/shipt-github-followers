@@ -1,6 +1,7 @@
 extends index
 
 block error
-  h1= message
-  h2= error.status
-  pre #{error.stack}
+  div.error
+    h1= message
+    h2= error.status
+    pre.stack #{error.stack}

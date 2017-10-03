@@ -12,6 +12,9 @@ router.post('/', function(req, res, next) {
       username: username
     }, function (e, r) {
       if (e) {
+        console.log('ERROR: ',e.status);
+        e.status = 'User: "' + req.body.username + '" ' + e.status;
+        console.log(e['message']);
         res.render('error',{error: e});
       } else {
         var json = JSON.parse(JSON.stringify(r));

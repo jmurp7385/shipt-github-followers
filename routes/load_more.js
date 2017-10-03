@@ -3,16 +3,21 @@ var router = express.Router();
 
 router.post('/', function(req, res, next) {
   storage.initSync();
-  console.log('Loading more...');
   var followers = JSON.parse(storage.getItemSync('followers'));
   var next_page = storage.getItemSync('next_page');
-  console.log(next_page);
   var last_page = storage.getItemSync('last_page');
+  console.log('Loading more... Page: '+next_page);
   if(next_page <= last_page) {
     github.users.getFollowersForUser({
       username: storage.getItemSync('handle'),
       page: next_page
     }, function(e,r){
+      if (e) {
+        console.log('ERROR: ',e.status);
+        e.status = 'User: "' + req.body.username + '" ' + e.status;
+        console.log(e['message']);
+        res.render('error',{error: e});
+      } else {
         var json = JSON.parse(JSON.stringify(r));
         var new_followers = json['data'];
         new_followers.forEach(function (follower) {
@@ -28,6 +33,7 @@ router.post('/', function(req, res, next) {
           next_page: storage.getItemSync('next_page'),
           last_page: storage.getItemSync('last_page')
         });
+      }
     });
   }
 });

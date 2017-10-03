@@ -144,6 +144,17 @@ input {
   text-align: center;
 }
 
+.error {
+  background-color: #ccc;
+  color: #f00;
+  padding: 25px;
+  text-align: left;
+}
+/*
+.stack {
+  width: 90%;
+}
+*/
 #grid {
   display: grid;
   grid-template-columns: auto auto auto auto;
