@@ -1,5 +1,10 @@
 # shipt-github-followers
+
+## Problem
+Create a service that allows for a user to search for a GitHub username. On a successful search return, display the user's GitHub handle, follower count, and a list of the user's followers (just the avatar is fine). Since some users (e.g. gaearon, holman, etc.) have many thousands of followers, GitHub only returns a portion of the followers with each request. Create a "load more" button that, when clicked, fetches the next payload of followers. This button should persist until there are no more pages of followers to fetch
 A service that allows for a user to search for a GitHub username. On a successful search return, display the user's GitHub handle, follower count, and a list of the user's followers.
+
+# Solution
 
 ## Why I chose Express.js
 I chose Express because of the useful middlewares availables. This is my second time using Express, the first was at HackState (Sept 23 - 24). I chose Express so i could further my learning about the framework. Express provides a routing layer to organize pages better and other abstractions of lower level functionalities. Also it has extensive options of middleware that can be leveraged in your app so you don't have to reinvent the wheel. I also like it because although it is a framework it is very close to barebones node, so it is a lot easier to understand what is going on. I've only done testing(outside of print statments) once in my sophomore year when we had to write unit tests for a Java class.
